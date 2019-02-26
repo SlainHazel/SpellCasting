@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/notes_area.png" type="Texture" id=1]
+[ext_resource path="res://NotesZone.gd" type="Script" id=2]
+[ext_resource path="res://NoteButton.tscn" type="PackedScene" id=3]
+
+[node name="NotesZone" type="Sprite" index="0"]
+
+position = Vector2( 200, 240 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+PLAYER = "p2"
+
+[node name="NoteStarts" type="Node2D" parent="." index="0"]
+
+position = Vector2( 0, -272 )
+
+[node name="red" type="Position2D" parent="NoteStarts" index="0"]
+
+position = Vector2( -48, 0 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="blue" type="Position2D" parent="NoteStarts" index="1"]
+
+position = Vector2( -16, 0 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="green" type="Position2D" parent="NoteStarts" index="2"]
+
+position = Vector2( 16, 0 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="purple" type="Position2D" parent="NoteStarts" index="3"]
+
+position = Vector2( 48, 0 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Timer" type="Timer" parent="NoteStarts" index="4"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="Buttons" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 0, 216 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Red" parent="Buttons" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( -48, 0 )
+COLOR = "red"
+
+[node name="Blue" parent="Buttons" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( -16, 0 )
+COLOR = "blue"
+
+[node name="Green" parent="Buttons" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 16, 0 )
+COLOR = "green"
+
+[node name="Purple" parent="Buttons" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 48, 0 )
+COLOR = "purple"
+
+[connection signal="timeout" from="NoteStarts/Timer" to="." method="_on_Timer_timeout"]
+
+

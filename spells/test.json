@@ -1,0 +1,36 @@
+{
+    "id": "test",
+    "name": "Test Spell",
+    "notes": [
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.0
+        },
+        {
+            "color": "blue",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.5
+        },
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.2
+        },
+        {
+            "color": "green",
+            "type": "startslide",
+            "speed": 280,
+            "delay": 1.5
+        },
+        {
+            "color": "green",
+            "type": "endslide",
+            "speed": 280,
+            "delay": 0.2
+        },
+    ]
+}

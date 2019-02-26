@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://note_button.gd" type="Script" id=1]
+[ext_resource path="res://textures/buttons.png" type="Texture" id=2]
+[ext_resource path="res://sounds/click.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15, 4 )
+
+[node name="NoteButton" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+PLAYER = "p1"
+COLOR = null
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30, 40 )
+_sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="DepressionTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="SoundHit" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = null
+volume_db = 2.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundMiss" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[connection signal="timeout" from="DepressionTimer" to="." method="_on_depression_done"]
+
+

@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Note.gd" type="Script" id=1]
+[ext_resource path="res://textures/notes.png" type="Texture" id=2]
+[ext_resource path="res://textures/sparkle.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13, 7 )
+
+[sub_resource type="Curve" id=2]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+
+flags = 4
+width = 2048
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 5.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 3 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Initial Velocity", "Scale" ]
+
+[node name="Note" type="Area2D"]
+
+z_index = 1
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Z Index" ]
+COLOR = null
+SPEED = 240
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="DeathParticles" type="Particles2D" parent="." index="2"]
+
+emitting = false
+amount = 24
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.9
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 4 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Time", "Visibility" ]
+
+[node name="Tween" type="Tween" parent="." index="3"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "playback" ]
+
+[node name="DeathTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="DeathTimer" to="." method="queue_free"]
+
+

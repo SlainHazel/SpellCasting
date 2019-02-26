@@ -1,0 +1,48 @@
+{
+    "id": "fireball",
+    "name": "Basic Fireball",
+    "notes": [
+        {
+            "color": "green",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.75
+        },
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.3
+        },
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.3
+        },
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.75
+        },
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.0
+        },
+        {
+            "color": "green",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.0
+        },
+        {
+            "color": "purple",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.0
+        }
+    ]
+}
