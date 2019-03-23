@@ -1,0 +1,72 @@
+{
+    "id": "rainbow",
+    "name": "Prism Blast",
+    "notes": [
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.3
+        },
+        {
+            "color": "blue",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.2
+        },
+        {
+            "color": "green",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.3
+        },
+        {
+            "color": "purple",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.3
+        },
+        {
+            "color": "green",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.3
+        },
+        {
+            "color": "blue",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.3
+        },
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.5
+        },
+        {
+            "color": "red",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.0
+        },
+        {
+            "color": "blue",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.0
+        },
+        {
+            "color": "green",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.0
+        },
+        {
+            "color": "purple",
+            "type": "basic",
+            "speed": 240,
+            "delay": 0.0
+        },
+    ]
+}

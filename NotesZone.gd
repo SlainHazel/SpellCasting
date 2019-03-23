@@ -10,21 +10,27 @@ var current_spell = {}
 var current_note = 0
 var notes_total = 0
 var notes_hit = 0
+var misses = 0
 
 func _ready():
 	# set buttons to match board player
 	for button in $Buttons.get_children():
 		button.PLAYER = PLAYER
 	
-	# Test json spell loading
-	current_spell = Spells.spells["fireball"]
+	start_spell("rainbow")
+
+func start_spell(name):
+	current_spell = Spells.spells[name]
+	current_note = 0
+	notes_total = len(current_spell["notes"])
+	notes_hit = 0
+	misses = 0
 	next_note()
 
 func spawn_note(color, speed):
 	var note = Note.instance()
 	note.COLOR = color
 	note.SPEED = speed
-	
 	get_node("NoteStarts/" + color).add_child(note)
 
 func next_note():

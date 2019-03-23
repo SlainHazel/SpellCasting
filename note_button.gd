@@ -27,12 +27,12 @@ func _ready():
 			sound_miss.pitch_scale = 0.95
 		"green":
 			sprite.region_rect.position.x = 60
-			sound_hit.pitch_scale = 0.05
-			sound_miss.pitch_scale = 0.05
+			sound_hit.pitch_scale = 1.05
+			sound_miss.pitch_scale = 1.05
 		"purple":
 			sprite.region_rect.position.x = 90
-			sound_hit.pitch_scale = 0.15
-			sound_miss.pitch_scale = 0.15
+			sound_hit.pitch_scale = 1.15
+			sound_miss.pitch_scale = 1.15
 
 func _physics_process(delta):
 	if Input.is_action_pressed(PLAYER + "_" + COLOR):
@@ -47,9 +47,9 @@ func _physics_process(delta):
 		if len(get_overlapping_areas()) == 0:
 			sound_miss.play()
 		else:
-			sound_hit.play()
 			for note in get_overlapping_areas():
 				note.explode()
+				sound_hit.play()
 
 func _on_depression_done():
 	depressed = false

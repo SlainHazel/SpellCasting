@@ -45,7 +45,6 @@ autostart = false
 
 [node name="Buttons" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 0, 216 )
 _sections_unfolded = [ "Transform" ]
 
